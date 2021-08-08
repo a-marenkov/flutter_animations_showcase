@@ -68,7 +68,7 @@ class _ShowcaseAnimatedHeroStatsGraphState
         ShowcaseConfigData.defaultDuration;
 
     return ShowcaseScaffold(
-      title: widget.runtimeType.toString(),
+      title: ShowcaseTitle.of(context),
       onRun: onRun,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,

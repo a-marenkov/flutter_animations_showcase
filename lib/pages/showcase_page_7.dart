@@ -19,7 +19,7 @@ class _ShowcaseAnimatedBouncyState extends State<ShowcaseAnimatedBouncy> {
   @override
   Widget build(BuildContext context) {
     return ShowcaseScaffold(
-      title: widget.runtimeType.toString(),
+      title: ShowcaseTitle.of(context),
       onRun: null,
       child: Center(
         child: AnimatedBouncy(

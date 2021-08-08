@@ -67,3 +67,25 @@ class ShowcaseScaffold extends StatelessWidget {
     );
   }
 }
+
+/// Provides showcase string title through [InheritedWidget]
+class ShowcaseTitle extends InheritedWidget {
+  final Widget child;
+  final String title;
+
+  ShowcaseTitle({
+    required this.child,
+    required this.title,
+  }) : super(child: child);
+
+  static String of(BuildContext context) =>
+      context.dependOnInheritedWidgetOfExactType<ShowcaseTitle>()?.title ?? '';
+
+  @override
+  bool updateShouldNotify(covariant InheritedWidget oldWidget) {
+    if (oldWidget is ShowcaseTitle) {
+      return oldWidget.title != title;
+    }
+    return true;
+  }
+}

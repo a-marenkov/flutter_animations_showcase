@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_animations_showcase/pages/common/showcase_scaffold.dart';
 import 'package:flutter_animations_showcase/pages/showcase_page_7.dart';
 
 import '../strings.dart';
@@ -45,7 +46,12 @@ class HomePage extends StatelessWidget {
                     addDivider: index < showcases.length - 1,
                     onTap: () {
                       Navigator.of(context).push(
-                        MaterialPageRoute(builder: (context) => showcase.value),
+                        MaterialPageRoute(
+                          builder: (context) => ShowcaseTitle(
+                            title: showcase.key,
+                            child: showcase.value,
+                          ),
+                        ),
                       );
                     },
                   );

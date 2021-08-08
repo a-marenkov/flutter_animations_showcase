@@ -29,7 +29,7 @@ class _ShowcasePage1State extends State<ShowcaseAnimatedVisibility> {
         ShowcaseConfigData.defaultDuration;
 
     return ShowcaseScaffold(
-      title: widget.runtimeType.toString(),
+      title: ShowcaseTitle.of(context),
       onRun: onRun,
       child: Center(
         child: AnimatedVisibility(

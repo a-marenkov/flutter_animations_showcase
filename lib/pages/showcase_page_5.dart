@@ -16,7 +16,7 @@ class ShowcaseAnimatedPulse extends StatelessWidget {
         ShowcaseConfigData.defaultDuration;
 
     return ShowcaseScaffold(
-      title: runtimeType.toString(),
+      title: ShowcaseTitle.of(context),
       onRun: null,
       child: Center(
         child: AnimatedPulse(

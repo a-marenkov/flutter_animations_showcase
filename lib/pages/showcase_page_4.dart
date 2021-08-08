@@ -31,7 +31,7 @@ class _ShowcaseAnimatedCircleClipState
         ShowcaseConfigData.defaultDuration;
 
     return ShowcaseScaffold(
-      title: widget.runtimeType.toString(),
+      title: ShowcaseTitle.of(context),
       onRun: onRun,
       child: Center(
         child: AnimatedCircleClip(

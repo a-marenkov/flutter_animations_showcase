@@ -35,7 +35,7 @@ class _ShowcaseTweenAnimationBuilderState
         ShowcaseConfigData.defaultDuration;
 
     return ShowcaseScaffold(
-      title: widget.runtimeType.toString(),
+      title: ShowcaseTitle.of(context),
       onRun: toggle,
       child: Center(
         child: TweenAnimationBuilder(

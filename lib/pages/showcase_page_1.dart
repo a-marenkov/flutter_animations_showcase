@@ -31,7 +31,7 @@ class _ShowcaseAnimatedContainerState extends State<ShowcaseAnimatedContainer> {
         ShowcaseConfigData.defaultDuration;
 
     return ShowcaseScaffold(
-      title: widget.runtimeType.toString(),
+      title: ShowcaseTitle.of(context),
       onRun: toggle,
       child: Center(
         child: AnimatedContainer(
