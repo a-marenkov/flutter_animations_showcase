@@ -5,7 +5,7 @@ import 'package:flutter/widgets.dart';
 import 'common/showcase_scaffold.dart';
 import 'showcase_page_5.dart';
 
-/// Showcase of [Bouncy] usage
+/// Showcase of [AnimatedBouncy] usage
 class ShowcaseAnimatedBouncy extends StatefulWidget {
   const ShowcaseAnimatedBouncy({
     Key? key,
@@ -22,7 +22,7 @@ class _ShowcaseAnimatedBouncyState extends State<ShowcaseAnimatedBouncy> {
       title: widget.runtimeType.toString(),
       onRun: null,
       child: Center(
-        child: Bouncy(
+        child: AnimatedBouncy(
           child: ColoredCircle(
             size: 128,
             color: Colors.indigo,
@@ -33,19 +33,20 @@ class _ShowcaseAnimatedBouncyState extends State<ShowcaseAnimatedBouncy> {
   }
 }
 
-class Bouncy extends StatefulWidget {
+class AnimatedBouncy extends StatefulWidget {
   final Widget child;
 
-  const Bouncy({
+  const AnimatedBouncy({
     Key? key,
     required this.child,
   }) : super(key: key);
 
   @override
-  _BouncyState createState() => _BouncyState();
+  _AnimatedBouncyState createState() => _AnimatedBouncyState();
 }
 
-class _BouncyState extends State<Bouncy> with SingleTickerProviderStateMixin {
+class _AnimatedBouncyState extends State<AnimatedBouncy>
+    with SingleTickerProviderStateMixin {
   late final controller = AnimationController.unbounded(
     vsync: this,
   );

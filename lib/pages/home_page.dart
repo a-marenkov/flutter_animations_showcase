@@ -15,17 +15,18 @@ class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
 
   /// all showcases
-  static const showcases = <Widget>[
-    ShowcaseAnimatedContainer(),
-    ShowcaseTweenAnimationBuilder(),
-    ShowcaseAnimatedVisibility(),
-    ShowcaseAnimatedCircleClip(),
-    ShowcaseAnimatedPulse(),
-    ShowcaseAnimatedHeroStatsGraph(),
-    ShowcaseAnimatedBouncy(),
-  ];
+  static const showcases = <String, Widget>{
+    'AnimatedContainer': ShowcaseAnimatedContainer(),
+    'TweenAnimationBuilder': ShowcaseTweenAnimationBuilder(),
+    'AnimatedVisibility': ShowcaseAnimatedVisibility(),
+    'AnimatedCircleClip': ShowcaseAnimatedCircleClip(),
+    'AnimatedPulse': ShowcaseAnimatedPulse(),
+    'AnimatedHeroStatsGraph': ShowcaseAnimatedHeroStatsGraph(),
+    'AnimatedBouncy': ShowcaseAnimatedBouncy(),
+  };
 
   Widget build(BuildContext context) {
+    final entries = showcases.entries.toList();
     return Scaffold(
       appBar: AppBar(
         title: Text(Strings.appTitle),
@@ -37,14 +38,14 @@ class HomePage extends StatelessWidget {
               child: ListView.builder(
                 itemCount: showcases.length,
                 itemBuilder: (context, index) {
-                  final showcase = showcases[index];
+                  final showcase = entries[index];
                   return _HomeListItem(
                     index: index,
-                    title: showcase.runtimeType.toString().replaceAll('Showcase', ''),
+                    title: showcase.key,
                     addDivider: index < showcases.length - 1,
                     onTap: () {
                       Navigator.of(context).push(
-                        MaterialPageRoute(builder: (context) => showcase),
+                        MaterialPageRoute(builder: (context) => showcase.value),
                       );
                     },
                   );
